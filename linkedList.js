@@ -49,28 +49,23 @@ function linkedListGenerator() {
   };
 
   let remove = function(num) {
+    if (get(num) === false) {
+      return false;
+    }
     if (num === 0) {
       head = head.next;
-      if (get(num) === false) {
-        return false;
-      }
     } else {
       let currentNode = get(num);
-      if (currentNode === false) {
-        return false;
-      }
 
       let previousNode = get(num - 1);
 
       if (currentNode.next === null) {
         previousNode.next = null;
-        currentNode = null;
         tail = previousNode;
         return;
       }
       previousNode.next = currentNode.next;
       currentNode = previousNode.next;
-      tail = currentNode;
     }
   };
 
